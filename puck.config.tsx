@@ -7,6 +7,7 @@ type Props = {
       label: string;
       type: string;
       placeholder?: string;
+      options?: { value: string; label: string }[];
     }[];
   };
 };
@@ -40,9 +41,17 @@ export const config: Config<Props> = {
                 { value: "text", label: "Text" },
                 { value: "email", label: "Email" },
                 { value: "textarea", label: "Textarea" },
+                { value: "radio", label: "Radio" },
               ],
             },
             placeholder: { type: "text" },
+            options: {
+              type: "array",
+              arrayFields: {
+                value: { type: "text" },
+                label: { type: "text" },
+              },
+            },
           },
         },
       },
@@ -61,9 +70,7 @@ export const config: Config<Props> = {
             {fields.map((field, index) => (
               <div key={index} style={{ marginBottom: 20 }}>
                 <label>{field.label}</label>
-
-                {/* Render different input types based on the field type */}
-
+                
                 {field.type === "textarea" && (
                   <textarea
                     placeholder={field.placeholder}
@@ -86,7 +93,22 @@ export const config: Config<Props> = {
                     style={{ width: "100%", padding: 8, marginTop: 8 }}
                   />
                 )}
-                
+
+                {field.type === "radio" && field.options && (
+                  <div>
+                    {field.options.map((option, i) => (
+                      <label key={i} style={{ marginRight: 10 }}>
+                        <input
+                          type="radio"
+                          name={field.label}
+                          value={option.value}
+                        />{" "}
+                        {option.label}
+                      </label>
+                    ))}
+                  </div>
+                )}
+
               </div>
             ))}
           </form>
