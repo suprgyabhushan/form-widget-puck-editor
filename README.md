@@ -24,12 +24,16 @@ npm run dev
 
 3. To edit the homepage, access the Puck editor at https://localhost:3000/edit
 
+4. Please press the `Publish` button at top-right & then please go to the homepage again (https://localhost:3000) to see the overall page.
+
 
 ## Production:
 
 1. Please go to the homepage at https://form-widget-puck-editor.vercel.app
 
 2. To edit the homepage, access the Puck editor at https://form-widget-puck-editor.vercel.app/edit
+
+3. Please press the `Publish` button at top-right & then please go to the homepage again (https://form-widget-puck-editor.vercel.app) to see the overall page.
 
 
 ## General Steps:
