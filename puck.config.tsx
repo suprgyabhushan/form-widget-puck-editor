@@ -4,10 +4,10 @@ type Props = {
   HeadingBlock: { title: string };
   FormBlock: {
     fields: {
-      label: string;
-      type: string;
-      placeholder?: string;
-      options?: { value: string; label: string }[];
+      Label: string;
+      Type: string;
+      Placeholder?: string;
+      Options?: { value: string; label: string }[];
     }[];
   };
 };
@@ -34,8 +34,8 @@ export const config: Config<Props> = {
         fields: {
           type: "array",
           arrayFields: {
-            label: { type: "text" },
-            type: {
+            Label: { type: "text" },
+            Type: {
               type: "select",
               options: [
                 { value: "text", label: "Text" },
@@ -45,8 +45,8 @@ export const config: Config<Props> = {
                 { value: "check", label: "CheckBox"},
               ],
             },
-            placeholder: { type: "text" },
-            options: {
+            Placeholder: { type: "text" },
+            Options: {
               type: "array",
               arrayFields: {
                 value: { type: "text" },
@@ -59,9 +59,9 @@ export const config: Config<Props> = {
       defaultProps: {
         fields: [
           {
-            label: "Text Field",
-            type: "text",
-            placeholder: "Enter text",
+            Label: "Text Field",
+            Type: "text",
+            Placeholder: "Enter Text",
           },
         ],
       },
@@ -70,22 +70,22 @@ export const config: Config<Props> = {
           <form>
             {fields.map((field, index) => (
               <div key={index} style={{ marginBottom: 20 }}>
-                <label>{field.label}</label>
+                <label>{field.Label}</label>
                 
-                {field.type === "textarea" && (
+                {field.Type === "textarea" && (
                   <textarea
-                    placeholder={field.placeholder}
+                    placeholder={field.Placeholder}
                     style={{ width: "100%", padding: 8, marginTop: 8 }}
                   />
                 )}
 
-                {field.type === "radio" && field.options && (
+                {field.Type === "radio" && field.Options && (
                   <div>
-                    {field.options.map((option, i) => (
+                    {field.Options.map((option, i) => (
                       <label key={i} style={{ marginRight: 10 }}>
                         <input
                           type="radio"
-                          name={field.label}
+                          name={field.Label}
                           value={option.value}
                         />{" "}
                         {option.label}
@@ -94,13 +94,13 @@ export const config: Config<Props> = {
                   </div>
                 )}
 
-                {field.type === "check" && field.options && (
+                {field.Type === "check" && field.Options && (
                   <div>
-                    {field.options.map((option, i) => (
+                    {field.Options.map((option, i) => (
                       <label key={i} style={{ marginRight: 10 }}>
                         <input
                           type="checkbox"
-                          name={field.label}
+                          name={field.Label}
                           value={option.value}
                         />{" "}
                         {option.label}
@@ -109,12 +109,12 @@ export const config: Config<Props> = {
                   </div>
                 )}
 
-                {field.type !== "radio" &&
-                  field.type !== "textarea" &&
-                  field.type !== "check" && (
+                {field.Type !== "radio" &&
+                  field.Type !== "textarea" &&
+                  field.Type !== "check" && (
                     <input
-                      type={field.type}
-                      placeholder={field.placeholder}
+                      type={field.Type}
+                      placeholder={field.Placeholder}
                       style={{ width: "100%", padding: 8, marginTop: 8 }}
                     />
                 )}
