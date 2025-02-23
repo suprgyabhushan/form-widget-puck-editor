@@ -7,7 +7,7 @@ type Props = {
       Label: string;
       Type: string;
       Placeholder?: string;
-      Options?: { value: string; label: string }[];
+      Options?: { Value: string; Label: string }[];
     }[];
   };
 };
@@ -49,8 +49,8 @@ export const config: Config<Props> = {
             Options: {
               type: "array",
               arrayFields: {
-                value: { type: "text" },
-                label: { type: "text" },
+                Value: { type: "text" },
+                Label: { type: "text" },
               },
             },
           },
@@ -86,9 +86,9 @@ export const config: Config<Props> = {
                         <input
                           type="radio"
                           name={field.Label}
-                          value={option.value}
+                          value={option.Value}
                         />{" "}
-                        {option.label}
+                        {option.Label}
                       </label>
                     ))}
                   </div>
@@ -101,9 +101,9 @@ export const config: Config<Props> = {
                         <input
                           type="checkbox"
                           name={field.Label}
-                          value={option.value}
+                          value={option.Value}
                         />{" "}
-                        {option.label}
+                        {option.Label}
                       </label>
                     ))}
                   </div>
