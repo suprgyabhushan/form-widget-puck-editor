@@ -41,7 +41,7 @@ export const config: Config<Props> = {
                 { value: "text", label: "Text" },
                 { value: "email", label: "Email" },
                 { value: "textarea", label: "Textarea" },
-                { value: "radio", label: "Radio" },
+                { value: "radio", label: "Radio Button" },
                 { value: "check", label: "Checkbox"},
               ],
             },
