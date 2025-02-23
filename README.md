@@ -1,42 +1,45 @@
-# `next` recipe
+## How to Run this Project on Local System:
 
-The `next` recipe showcases one of the most powerful ways to implement Puck using to provide an authoring tool for any route in your Next app.
+It created the necessary files
 
-## Demonstrates
-
-- Next.js App Router implementation
-- JSON database implementation with HTTP API
-- Catch-all routes to use puck for any route on the platform
-- Incremental static regeneration (ISR) for all Puck pages
-
-## Usage
-
-Run the generator and enter `next` when prompted
+Please clone this repository
 
 ```
-npx create-puck-app my-app
+git clone https://github.com/suprgyabhushan/form-widget-puck-editor.git
 ```
 
-Start the server
+Then, please run this below command. The required `node_modules` folder will get installed after running the command.
 
 ```
-yarn dev
+npm install
 ```
 
-Navigate to the homepage at https://localhost:3000. To edit the homepage, access the Puck editor at https://localhost:3000/edit.
+## Development:
 
-You can do this for any route on the application, **even if the page doesn't exist**. For example, visit https://localhost:3000/hello/world and you'll receive a 404. You can author and publish a page by visiting https://localhost:3000/hello/world/edit. After publishing, go back to the original URL to see your page.
+To start developing on local system, please run the below command:
 
-## Using this recipe
+```
+npm run dev
+```
 
-To adopt this recipe you will need to:
+After that, please navigate to the homepage at https://localhost:3000
 
-- **IMPORTANT** Add authentication to `/edit` routes. This can be done by modifying the example API routes in `/app/puck/api/route.ts` and server component in `/app/puck/[...puckPath]/page.tsx`. **If you don't do this, Puck will be completely public.**
-- Integrate your database into the API calls in `/app/puck/api/route.ts`
-- Implement a custom puck configuration in `puck.config.tsx`
+To edit the homepage, access the Puck editor at https://localhost:3000/edit
 
-By default, this recipe will generate static pages by setting `dynamic` to [`force-static`](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamic) in the `/app/[...puckPath]/page.tsx`. This will strip headers and cookies. If you need dynamic pages, you can delete this.
 
-## License
+## Production:
 
-MIT © [Measured Co.](https://github.com/measuredco)
+Please go to the homepage at https://form-widget-puck-editor.vercel.app
+
+To edit the homepage, access the Puck editor at https://form-widget-puck-editor.vercel.app/edit
+
+
+## General Steps:
+
+Created the project using the below general command with the `next` recipe:
+
+```
+npx create-puck-app form-widget-puck-editor
+```
+
+And the form widget has been created by editing the `puck.config.tsx` file.
