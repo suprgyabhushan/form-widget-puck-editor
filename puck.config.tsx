@@ -42,6 +42,7 @@ export const config: Config<Props> = {
                 { value: "email", label: "Email" },
                 { value: "textarea", label: "Textarea" },
                 { value: "radio", label: "Radio" },
+                { value: "check", label: "CheckBox"},
               ],
             },
             placeholder: { type: "text" },
@@ -78,22 +79,6 @@ export const config: Config<Props> = {
                   />
                 )}
 
-                {field.type === "text" && (
-                  <input
-                    type="text"
-                    placeholder={field.placeholder}
-                    style={{ width: "100%", padding: 8, marginTop: 8 }}
-                  />
-                )}
-
-                {field.type === "email" && (
-                  <input
-                    type="email"
-                    placeholder={field.placeholder}
-                    style={{ width: "100%", padding: 8, marginTop: 8 }}
-                  />
-                )}
-
                 {field.type === "radio" && field.options && (
                   <div>
                     {field.options.map((option, i) => (
@@ -107,6 +92,31 @@ export const config: Config<Props> = {
                       </label>
                     ))}
                   </div>
+                )}
+
+                {field.type === "check" && field.options && (
+                  <div>
+                    {field.options.map((option, i) => (
+                      <label key={i} style={{ marginRight: 10 }}>
+                        <input
+                          type="checkbox"
+                          name={field.label}
+                          value={option.value}
+                        />{" "}
+                        {option.label}
+                      </label>
+                    ))}
+                  </div>
+                )}
+
+                {field.type !== "radio" &&
+                  field.type !== "textarea" &&
+                  field.type !== "check" && (
+                    <input
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      style={{ width: "100%", padding: 8, marginTop: 8 }}
+                    />
                 )}
 
               </div>
